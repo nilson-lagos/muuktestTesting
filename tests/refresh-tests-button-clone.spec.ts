@@ -1,6 +1,6 @@
-import { test } from '../../fixtures/auth.fixture';
-import { TestsPage } from '../../pages/TestsPage';
-import { testsData } from '../../utils/testData';
+import { test } from '../fixtures/auth.fixture';
+import { TestsPage } from '../pages/TestsPage';
+import { testsData } from '../utils/testData';
 
 test('should refresh the tests list and clone a test as child test', async ({ page, sidebar }) => {
   const testsPage = new TestsPage(page);

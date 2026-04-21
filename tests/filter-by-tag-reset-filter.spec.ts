@@ -1,5 +1,5 @@
-import { test } from '../../fixtures/auth.fixture';
-import { TestsPage } from '../../pages/TestsPage';
+import { test } from '../fixtures/auth.fixture';
+import { TestsPage } from '../pages/TestsPage';
 
 test('should open the tag filter and reset it', async ({ page, sidebar }) => {
   const testsPage = new TestsPage(page);

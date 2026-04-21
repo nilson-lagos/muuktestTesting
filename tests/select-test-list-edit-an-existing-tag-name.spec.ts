@@ -1,6 +1,6 @@
-import { test, expect } from '../../fixtures/auth.fixture';
-import { TestsPage } from '../../pages/TestsPage';
-import { testsData } from '../../utils/testData';
+import { test, expect } from '../fixtures/auth.fixture';
+import { TestsPage } from '../pages/TestsPage';
+import { testsData } from '../utils/testData';
 
 test('should rename an existing tag on a test row', async ({ page, sidebar }) => {
   const testsPage = new TestsPage(page);

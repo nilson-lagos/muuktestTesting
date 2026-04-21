@@ -5,7 +5,7 @@ dotenv.config();
 
 export default defineConfig({
   reporter: [
-    ['./controlHub/controlHubReporter.ts']
+    ['@muuktest/amikoo-reporter']
   ],
   testDir: './tests',
   timeout: 120_000,
@@ -17,7 +17,7 @@ export default defineConfig({
     baseURL: process.env.BASE_URL || 'https://staging.muuktest.com:5000',
     headless: true,
     screenshot: 'only-on-failure',
-    video: 'retain-on-failure',
+    video: 'on',
     trace: 'retain-on-failure',
     viewport: { width: 1440, height: 900 },
   },
