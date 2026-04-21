@@ -1,0 +1,15 @@
+node_modules/
+playwright-report/
+test-results/
+test-results/
+fixtures.ts
+packcage-lock.json
+.env
+,github
+.vscode
+
+# Playwright
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+/playwright/.auth/
