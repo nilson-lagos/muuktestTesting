@@ -18,4 +18,55 @@ export class SchedulingPage extends BasePage {
   async assertPaginationValue(value: string): Promise<void> {
     await expect(this.page.getByText(value, { exact: true })).toBeVisible();
   }
+
+  async openNewScheduleForm(): Promise<void> {
+    await this.clickVisible(
+      this.page.getByRole('button', { name: /new schedule/i }),
+      this.page.getByText(/new schedule/i),
+    );
+  }
+
+  async fillScheduleName(name: string): Promise<void> {
+    await this.fillVisible(
+      name,
+      this.page.getByPlaceholder(/schedule name/i),
+      this.page.locator('input[placeholder="Schedule name"]'),
+    );
+  }
+
+  async selectRepeat(option: 'None' | 'Daily' | 'Weekly' | 'Weekdays' | 'Custom'): Promise<void> {
+    await this.page.getByRole('radio', { name: option }).check();
+  }
+
+  async proceedToContent(): Promise<void> {
+    await this.clickVisible(
+      this.page.getByRole('button', { name: /next|schedule content/i }),
+      this.page.getByText(/next/i),
+    );
+  }
+
+  async proceedToVariables(): Promise<void> {
+    await this.clickVisible(
+      this.page.getByRole('button', { name: /next|variables/i }),
+      this.page.getByText(/next/i),
+    );
+  }
+
+  async proceedToReport(): Promise<void> {
+    await this.clickVisible(
+      this.page.getByRole('button', { name: /next|report/i }),
+      this.page.getByText(/next/i),
+    );
+  }
+
+  async saveSchedule(): Promise<void> {
+    await this.clickVisible(
+      this.page.getByRole('button', { name: /save/i }),
+      this.page.getByText(/save/i),
+    );
+  }
+
+  async assertScheduleVisible(scheduleName: string): Promise<void> {
+    await expect(this.rowByText(scheduleName)).toBeVisible();
+  }
 }
