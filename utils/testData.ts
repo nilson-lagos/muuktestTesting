@@ -16,6 +16,7 @@ export const testsData = {
   testSearchTerm: process.env.TEST_SEARCH_TERM ?? '',
   oldBaseUrl: requireEnv('TEST_BASE_URL_OLD', 'https://example-old.test'),
   newBaseUrl: requireEnv('TEST_BASE_URL_NEW', 'https://example-new.test'),
+  newScheduleName: requireEnv('TEST_NEW_SCHEDULE_NAME', 'Automated Schedule Test'),
 };
 
 export const mobileData = {
