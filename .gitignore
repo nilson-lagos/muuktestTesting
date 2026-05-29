@@ -4,7 +4,6 @@ test-results/
 test-results/
 fixtures.ts
 packcage-lock.json
-.env
 ,github
 .vscode
 
