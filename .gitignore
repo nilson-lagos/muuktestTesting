@@ -14,3 +14,4 @@ packcage-lock.json
 /playwright/.auth/
 
 .DS_Store
+.env
