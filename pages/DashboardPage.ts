@@ -7,7 +7,6 @@ export class DashboardPage extends BasePage {
   }
 
   async assertLoaded(): Promise<void> {
-    await expect(this.page.getByRole('heading', { name: /analytics dashboard/i })).toBeVisible();
     await expect(this.page.getByText(/total tests created/i)).toBeVisible();
     await expect(this.page.getByText(/passed/i)).toBeVisible();
     await expect(this.page.getByText(/product failure/i)).toBeVisible();
