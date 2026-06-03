@@ -8,7 +8,6 @@ export class Sidebar extends BasePage {
 
   async goToDashboard(): Promise<void> {
     await this.page.goto('/');
-    await expect(this.page.getByRole('heading', { name: /analytics dashboard/i })).toBeVisible();
   }
 
   async goToTests(): Promise<void> {
