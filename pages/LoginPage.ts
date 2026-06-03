@@ -20,7 +20,7 @@ export class LoginPage extends BasePage {
   }
 
   private get dashboardMarker() {
-    return this.page.locator('text=MuukTest Automation');
+    return this.page.locator('li', { hasText: 'Analytics' });
   }
 
   async goto(): Promise<void> {
