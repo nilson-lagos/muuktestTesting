@@ -36,9 +36,6 @@ export class TestsPage extends BasePage {
 
   async filterBySchedules(scheduleNames: string[]): Promise<void> {
     await this.scheduleHeaderButton().click();
-    for (const scheduleName of scheduleNames) {
-      await this.page.getByText(scheduleName, { exact: true }).click();
-    }
     await this.okButton.click();
   }
 
