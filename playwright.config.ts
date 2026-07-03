@@ -13,7 +13,7 @@ export default defineConfig({
   retries: 0,
   workers: 1,
   //reporter: [['list'], ['html', { outputFolder: 'playwright-report', open: 'never' }]],
-  use: {,
+  use: {
     baseURL: process.env.BASE_URL || 'https://staging.muuktest.com:5000',
     headless: true,
     screenshot: 'only-on-failure',
@@ -21,7 +21,7 @@ export default defineConfig({
     trace: 'retain-on-failure',
     viewport: { width: 1440, height: 900 },
   },
-  projects: [,
+  projects: [
     {
       name: 'chromium',
       use: { ...devices['Desktop Chrome'] },
