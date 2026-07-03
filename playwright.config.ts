@@ -3,9 +3,6 @@ import * as dotenv from 'dotenv';
 
 dotenv.config();
 
-// TEMP: forced setup failure to test executor S3 log upload + run_audit. Revert via backup-working.
-throw new Error('forced setup failure for S3 log-upload test');
-
 export default defineConfig({
   reporter: [
     ['@muuktest/amikoo-reporter']
