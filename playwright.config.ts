@@ -20,10 +20,10 @@ export default defineConfig({
     video: 'on',
     trace: 'retain-on-failure',
     viewport: { width: 1440, height: 900 },
-  },,
-  projects: [,
-    {,
-      name: 'chromium',,
+  },
+  projects: [
+    {
+      name: 'chromium',
       use: { ...devices['Desktop Chrome'] },
     },
   ],
