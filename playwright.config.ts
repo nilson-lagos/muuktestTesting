@@ -5,7 +5,8 @@ dotenv.config();
 
 export default defineConfig({
   reporter: [
-    ['@muuktest/amikoo-reporter']
+    ['@muuktest/amikoo-playwright/reporter'],
+    ['@muuktest/amikoo-reporter'],
   ],
   testDir: './tests',
   timeout: 120_000,
@@ -21,9 +22,9 @@ export default defineConfig({
     trace: 'retain-on-failure',
     viewport: { width: 1440, height: 900 },
   },
-  projects: [,
-    {,
-      name: 'chromium',,
+  projects: [
+    {
+      name: 'chromium',
       use: { ...devices['Desktop Chrome'] },
     },
   ],
