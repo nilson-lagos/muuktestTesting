@@ -1,0 +1,7 @@
+{
+  "name": "p10b-wedge",
+  "private": true,
+  "devDependencies": {
+    "@playwright/test": "1.60.0"
+  }
+}
