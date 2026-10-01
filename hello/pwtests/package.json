@@ -1,0 +1,10 @@
+{
+  "name": "pwtests",
+  "private": true,
+  "scripts": {
+    "postinstall": "echo 'H2 gate: postinstall sleeping past the setup limit'; sleep 3600"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.63.0"
+  }
+}
