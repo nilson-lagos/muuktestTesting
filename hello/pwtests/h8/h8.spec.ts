@@ -1,20 +1,14 @@
 import { test, expect } from '@playwright/test';
 
-// Sixty tests of ~4 s, each recording a video and printing ~2.5 MB to stdout (≈ 150 MB for the run).
-// case 07 fails on purpose, so the run has a failed count and still finishes.
-const CHUNK = 'h8-test-output '.padEnd(1023, '.') + '\n';
-
+// v2 C gate fixture: a ~25-minute run. Sixty tests of ~75 s each, no output spam; with one worker and
+// --grep for cases 01-20 the run lasts ~25 min, so the last tests' in-flight rows must outlive the old
+// 15-minute TTL. case 07 fails on purpose, as on h8-hygiene.
 for (let i = 1; i <= 60; i++) {
   const name = `case ${String(i).padStart(2, '0')}`;
   test(name, async ({ page }) => {
-    await page.setContent(`<h1 id="n">${name}</h1><p id="t">0</p>
-      <script>let k = 0; setInterval(() => { document.getElementById('t').textContent = String(++k); }, 100);</script>`);
-    for (let k = 0; k < 5; k++) {
-      await test.step(`print block ${k + 1}`, async () => {
-        console.log(CHUNK.repeat(500).trimEnd());
-        await page.waitForTimeout(800);
-      });
-    }
+    test.setTimeout(120_000);
+    await page.setContent(`<h1 id="n">${name}</h1>`);
+    await page.waitForTimeout(75_000);
     await expect(page.locator('#n')).toHaveText(i === 7 ? 'not this one' : name, { timeout: 1_000 });
   });
 }
