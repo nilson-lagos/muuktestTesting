@@ -6,7 +6,8 @@ const CHUNK = 'h8-test-output '.padEnd(1023, '.') + '\n';
 
 for (let i = 1; i <= 60; i++) {
   const name = `case ${String(i).padStart(2, '0')}`;
-  test(name, async ({ page }) => {
+  // v2 C gate: a .only on case 05 — --list still matches all 60 (or the --grep's 20), the run schedules 1.
+  (i === 5 ? test.only : test)(name, async ({ page }) => {
     await page.setContent(`<h1 id="n">${name}</h1><p id="t">0</p>
       <script>let k = 0; setInterval(() => { document.getElementById('t').textContent = String(++k); }, 100);</script>`);
     for (let k = 0; k < 5; k++) {
