@@ -3,9 +3,9 @@ import * as dotenv from 'dotenv';
 
 dotenv.config();
 
-const appUrl = process.env.APP_URL;
+const appUrl = process.env.BASE_URL;
 if (!appUrl) {
-  throw new Error('APP_URL is not set. Point it at the app under test, e.g. APP_URL=https://staging.muuktest.com:5000');
+  throw new Error('BASE_URL is not set. Point it at the app under test, e.g. BASE_URL=https://staging.muuktest.com:5000');
 }
 
 export default defineConfig({
