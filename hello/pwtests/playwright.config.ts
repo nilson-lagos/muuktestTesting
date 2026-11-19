@@ -3,11 +3,6 @@ import * as dotenv from 'dotenv';
 
 dotenv.config();
 
-// The login fixture signs in through the admin API; without the token no test can start.
-if (!process.env.ADMIN_API_TOKEN) {
-  throw new Error('ADMIN_API_TOKEN is not set. The test suite needs an admin API token to sign in.');
-}
-
 export default defineConfig({
   reporter: [
     ['@muuktest/amikoo-playwright/reporter'],
