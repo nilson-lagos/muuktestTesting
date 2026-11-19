@@ -3,9 +3,9 @@ import * as dotenv from 'dotenv';
 
 dotenv.config();
 
-const appUrl = process.env.APP_URL;
-if (!appUrl) {
-  throw new Error('APP_URL is not set. Point it at the app under test, e.g. APP_URL=https://staging.muuktest.com:5000');
+// The login fixture signs in through the admin API; without the token no test can start.
+if (!process.env.ADMIN_API_TOKEN) {
+  throw new Error('ADMIN_API_TOKEN is not set. The test suite needs an admin API token to sign in.');
 }
 
 export default defineConfig({
@@ -20,7 +20,7 @@ export default defineConfig({
   workers: 1,
   //reporter: [['list'], ['html', { outputFolder: 'playwright-report', open: 'never' }]],
   use: {
-    baseURL: appUrl,
+    baseURL: process.env.BASE_URL || 'https://staging.muuktest.com:5000',
     headless: true,
     screenshot: 'only-on-failure',
     video: 'on',
