@@ -1,5 +1,5 @@
 import { test, expect } from '../fixtures';
-import { LoginPage } from '../../pages/LoginPage';
+import { LoginPage } from '../pages/LoginPage';
 
 test('error when logging in with invalid credentials', async ({ page }) => {
   const loginPage = new LoginPage(page);
