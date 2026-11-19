@@ -3,6 +3,11 @@ import * as dotenv from 'dotenv';
 
 dotenv.config();
 
+const appUrl = process.env.APP_URL;
+if (!appUrl) {
+  throw new Error('APP_URL is not set. Point it at the app under test, e.g. APP_URL=https://staging.muuktest.com:5000');
+}
+
 export default defineConfig({
   reporter: [
     ['@muuktest/amikoo-playwright/reporter'],
@@ -15,7 +20,7 @@ export default defineConfig({
   workers: 1,
   //reporter: [['list'], ['html', { outputFolder: 'playwright-report', open: 'never' }]],
   use: {
-    baseURL: process.env.BASE_URL || 'https://staging.muuktest.com:5000',
+    baseURL: appUrl,
     headless: true,
     screenshot: 'only-on-failure',
     video: 'on',
